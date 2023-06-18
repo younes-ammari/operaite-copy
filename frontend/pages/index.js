@@ -95,8 +95,8 @@ export default function Home() {
   return (
     <div className="container mx-auto max-w-[700px] overflow-y-auto">
       <div className="flex flex-col h-screen bg-gray-900">
-        <h1 className="sticky top-0 bg-gradient-to-r from-white to-cyan-300 text-transparent bg-clip-text text-center py-3 font-bold text-6xl">Oper<span className="text-white">AI</span>te</h1>
-        <div className="flex-grow p-6 bg-gray-900">
+        <h1 className="sticky top-0 bg-gradient-to-r from-white to-cyan-300 text-transparent bg-clip-text text-center pt-1 pb-5 font-bold text-6xl">Oper<span className="text-white">AI</span>te</h1>
+        <div className="flex-grow p-6 bg-gray-900 chat-wrapper">
           {/* <h1>key {process.env.OPENAI_API_KEY}</h1> */}
           <div className="flex flex-col space-y-4 ">
             {
@@ -121,8 +121,8 @@ export default function Home() {
 
           </div>
         </div>
-        <form onSubmit={handleSubmit} className="flex-none p-6">
-          <div contentEditable className="flex rounded-lg items-end border border-gray-700 bg-gray-700 py-1 px-1 chat">
+        <form onSubmit={handleSubmit} className="flex-none p-4">
+          <div contentEditable className="flex rounded-lg items-end border border-gray-700 bg-gray-700 py-1 px-1 typing-container">
             <textarea
               name="text"
               rows="1"
@@ -160,17 +160,7 @@ export default function Home() {
 
 
           </div>
-          {/* <div className="typing-bar">
-            
-            <input
-              type="text"
-              className="input-box"
-              placeholder="Type your message..."
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-            />
-            <button className="send-button">Send</button>
-          </div> */}
+          
 
         </form>
       </div>
