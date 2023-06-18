@@ -2,3 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+.chat{
+    /* background-color: red; */
+    height: fit-content;
+    /* height: 50px; */
+    /* flex: 1; */
+    /* min-height: 60px; */
+}
+
+.chat-input{
+    /* background-color: red; */
+    /* min-height: 50px; */
+    /* flex: 1; */
+    /* word-break: break-word; */
+    /* height: fit-content; */
+    /* height: 100px; */
+    /* flex-wrap: wrap; */
+}
+
+.svg-icon{
+    height: 23px;
+    width: 23px;
+    margin: 0px 3px;
+    
+    /* color: red; */
+    /* background-color: red; */
+}
+.typing-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  .typing-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    /* margin-right: 10px; */
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #888;
+    margin-right: 4px;
+    animation: typing-indicator-animation 1.5s infinite;
+  }
+  
+  @keyframes typing-indicator-animation {
+    0% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.3;
+    }
+  }
+  
+  .input-box {
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    padding: 6px;
+    outline: none;
+  }
+  
+  .send-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .send-button:hover {
+    background-color: #0056b3;
+  }
+
+  .disabled{
+    opacity: .5;
+  }
+  

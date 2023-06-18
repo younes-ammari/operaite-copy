@@ -122,10 +122,56 @@ export default function Home() {
           </div>
         </div>
         <form onSubmit={handleSubmit} className="flex-none p-6">
-          <div className="flex rounded-lg border border-gray-700 bg-gray-800">
-            <input type="text" className="flex-grow px-4 py-2 bg-transparent text-white focus:outline-none" placeholder="Ask me... " value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-            <button type="submit" className="bg-gray-500 rounded-lg px-4 py-2 text-white font-semibold focus:outline-none hover:bg-black transition-colors duration-300">send</button>
+          <div contentEditable className="flex rounded-lg items-end border border-gray-700 bg-gray-700 py-1 px-1 chat">
+            <textarea
+              name="text"
+              rows="1"
+              onInput={(e) => {
+                e.target.style.height = "auto";
+                e.target.style.height = `${e.target.scrollHeight}px`;
+              }}
+              className="flex-grow px-4 py-3 bg-transparent text-white focus:outline-none chat-input"
+              placeholder="Ask me..."
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            ></textarea>
+            {/* <button type="submit" className="bg-gray-500 rounded-lg px-4 py-2 text-white font-semibold focus:outline-none hover:bg-black transition-colors duration-300">send</button> */}
+            <div className="">
+              {
+                isLoading ?
+
+                  <div className="typing-indicator flex rounded-lg px-3 py-3 items-center justify-center">
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                  </div>
+                  :
+                  <button
+                  disabled={inputValue.length<3}
+                    type="submit"
+                    className={`flex items-center justify-center bg-gray-500 rounded-lg px-3 py-3  text-white font-semibold focus:outline-none hover:bg-black transition-colors duration-300 ${inputValue.length <3 && "hover:bg-gray-500 disabled"}`}
+                  >
+                    <svg class="svg-icon" viewBox="0 0 20 20" fill="white">
+                      <path d="M17.218,2.268L2.477,8.388C2.13,8.535,2.164,9.05,2.542,9.134L9.33,10.67l1.535,6.787c0.083,0.377,0.602,0.415,0.745,0.065l6.123-14.74C17.866,2.46,17.539,2.134,17.218,2.268 M3.92,8.641l11.772-4.89L9.535,9.909L3.92,8.641z M11.358,16.078l-1.268-5.613l6.157-6.157L11.358,16.078z"></path>
+                    </svg>
+                  </button>
+              }
+            </div>
+
+
           </div>
+          {/* <div className="typing-bar">
+            
+            <input
+              type="text"
+              className="input-box"
+              placeholder="Type your message..."
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <button className="send-button">Send</button>
+          </div> */}
+
         </form>
       </div>
     </div>
